@@ -1,6 +1,7 @@
 package com.example.will.sumcalculator;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     //define the variables to be saved
     private int num1 = 0;
     private int num2 = 0;
+
+    public static final String EXTRA_MESSAGE = "com."
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +53,34 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     }
 
+    /** Called when the user taps the button for Sum **/
+    public void sendMessage(View v){
+        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        EditText editText = (EditText) findViewById(R.id.editText);
+    }
+
     @Override
     public void onClick(View v) {
         caluculateAndDisplay();
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+
+        SharedPreferences.Editor editor = savedValues.edit();
+        editor.putInt("Num1", num1);
+        editor.putInt("Num2", num2);
+        editor.commit();
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        num1 = savedValues.getInt("num1", num1);
+        num2 = savedValues.getInt("num2", num2);
+
+
     }
 }
