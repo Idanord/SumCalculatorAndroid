@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends Activity {
 
     //define instance variables
     private EditText editTextNum1;
@@ -24,7 +24,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private int num1 = 0;
     private int num2 = 0;
 
-    public static final String EXTRA_MESSAGE = "com."
+    public static final String EXTRA_MESSAGE = "com.";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,52 +35,62 @@ public class MainActivity extends Activity implements View.OnClickListener {
         editTextNum1 = (EditText) findViewById(R.id.editTextNum1);
         editTextNum2 = (EditText) findViewById(R.id.editTextNum2);
         buttonGetSum = (Button) findViewById(R.id.buttonGetSum);
-        textViewAnswer = (TextView) findViewById(R.id.textViewAnswer);
+        //textViewAnswer = (TextView) findViewById(R.id.textViewAnswer);
 
         //set the listener
-        buttonGetSum.setOnClickListener((View.OnClickListener) this);
+        //buttonGetSum.setOnClickListener((View.OnClickListener) this);
 
         //get shared prefs object
         savedValues = getSharedPreferences("SavedValues", MODE_PRIVATE);
     }
 
-    public void caluculateAndDisplay(){
+    /**public void caluculateAndDisplay(){
         num1 = Integer.parseInt(editTextNum1.getText().toString());
         num2 = Integer.parseInt(editTextNum2.getText().toString());
         int sum = num1 + num2;
 
         textViewAnswer.setText(String.valueOf(sum));
 
-    }
+    }**/
 
     /** Called when the user taps the button for Sum **/
     public void sendMessage(View v){
+        //send an intent that you are going to invoke the second activity from the first activity
         Intent intent = new Intent(this, DisplayMessageActivity.class);
-        EditText editText = (EditText) findViewById(R.id.editText);
+
+        //get values for the numbers to be added
+        num1 = Integer.parseInt(editTextNum1.getText().toString());
+        num2 = Integer.parseInt(editTextNum2.getText().toString());
+
+        intent.putExtra("num1", num1);
+        intent.putExtra("num2", num2);
+
+        startActivity(intent);
+
     }
 
-    @Override
+    /**@Override
     public void onClick(View v) {
         caluculateAndDisplay();
-    }
+    }**/
 
     @Override
     public void onPause(){
-        super.onPause();
 
+        //save the instance variables
         SharedPreferences.Editor editor = savedValues.edit();
-        editor.putInt("Num1", num1);
-        editor.putInt("Num2", num2);
+        editor.putInt("num1", num1);
+        editor.putInt("num2", num2);
         editor.commit();
+        super.onPause();
     }
 
     @Override
     public void onResume(){
+
+        //resume the instance variables
         super.onResume();
-
-        num1 = savedValues.getInt("num1", num1);
-        num2 = savedValues.getInt("num2", num2);
-
-
+        num1 = savedValues.getInt("num1", 0);
+        num2 = savedValues.getInt("num2", 0);
     }
 }

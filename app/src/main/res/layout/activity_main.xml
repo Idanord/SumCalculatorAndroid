@@ -14,7 +14,7 @@
         android:layout_marginEnd="28dp"
         android:layout_marginStart="11dp"
         android:layout_marginTop="78dp"
-        android:text="TextView"
+        android:text="First Number:"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/editTextNum2"
         app:layout_constraintEnd_toStartOf="@+id/editTextNum1"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="28dp"
         android:layout_marginStart="11dp"
-        android:text="TextView"
+        android:text="Second Number:"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/editTextNum2"
         app:layout_constraintEnd_toStartOf="@+id/editTextNum2"
@@ -37,7 +37,7 @@
 
     <EditText
         android:id="@+id/editTextNum1"
-        android:layout_width="wrap_content"
+        android:layout_width="138dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="59dp"
         android:ems="10"
@@ -48,12 +48,15 @@
 
     <EditText
         android:id="@+id/editTextNum2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
+        android:layout_width="141dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toEndOf="@+id/secondNumberTextView"
         app:layout_constraintTop_toBottomOf="@+id/editTextNum1" />
 
@@ -70,20 +73,7 @@
         app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.548" />
-
-    <TextView
-        android:id="@+id/textViewAnswer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="13dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonGetSum"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonGetSum"
-        tools:text="0" />
+        app:layout_constraintVertical_bias="0.548"
+        tools:text="Get Sum" />
 
 </android.support.constraint.ConstraintLayout>
