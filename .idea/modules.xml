@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://C:\Users\Will\Documents\GitHub\SumCalculatorAndroid\SumCalculator.iml" filepath="C:\Users\Will\Documents\GitHub\SumCalculatorAndroid\SumCalculator.iml" />
       <module fileurl="file://$PROJECT_DIR$/SumCalculatorAndroid.iml" filepath="$PROJECT_DIR$/SumCalculatorAndroid.iml" />
+      <module fileurl="file://C:\Users\Will\Documents\GitHub\SumCalculatorAndroid\SumCalculatorAndroid.iml" filepath="C:\Users\Will\Documents\GitHub\SumCalculatorAndroid\SumCalculatorAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Will\Documents\GitHub\SumCalculatorAndroid\app\app.iml" filepath="C:\Users\Will\Documents\GitHub\SumCalculatorAndroid\app\app.iml" />
     </modules>
   </component>
 </project>
